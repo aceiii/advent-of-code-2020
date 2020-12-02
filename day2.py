@@ -24,21 +24,21 @@ def validate_line2(rule, password):
 
 
 def part1(lines):
-    valid_lines = filter(lambda line: validate_line(*line), lines)
-    answer = len(list(valid_lines))
-    print("Part1: {}".format(answer))
+    parsed_lines = map(parse_line, lines)
+    valid_lines = filter(lambda line: validate_line(*line), parsed_lines)
+    return len(list(valid_lines))
 
 
 def part2(lines):
-    valid_lines = filter(lambda line: validate_line2(*line), lines)
-    answer = len(list(valid_lines))
-    print("Part2: {}".format(answer))
+    parsed_lines = map(parse_line, lines)
+    valid_lines = filter(lambda line: validate_line2(*line), parsed_lines)
+    return len(list(valid_lines))
 
 
 def main():
-    lines = list(map(parse_line, sys.stdin.readlines()))
-    part1(lines)
-    part2(lines)
+    lines = sys.stdin.readlines()
+    print("Part1: {}".format(part1(lines)))
+    print("Part2: {}".format(part2(lines)))
 
 
 if __name__ == "__main__":

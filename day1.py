@@ -28,23 +28,22 @@ def find_triplets(numbers, target):
     raise ValueError("target {} not found".format(target))
 
 
-def part1(numbers, target):
-    (num1, num2) = find_pairs(numbers, target)
-    answer = num1 * num2
-    print("Part1: {}".format(answer))
+def part1(lines):
+    numbers = list(map(lambda x: int(x, 10), lines))
+    (num1, num2) = find_pairs(numbers, 2020)
+    return num1 * num2
 
 
-def part2(numbers, target):
-    (num1, num2, num3) = find_triplets(numbers, target)
-    answer = num1 * num2 * num3
-    print("Part2: {}".format(answer))
+def part2(lines):
+    numbers = list(map(lambda x: int(x, 10), lines))
+    (num1, num2, num3) = find_triplets(numbers, 2020)
+    return num1 * num2 * num3
 
 
 def main():
-    target = 2020
-    numbers = list(map(lambda x: int(x, 10), sys.stdin.readlines()))
-    part1(numbers, target)
-    part2(numbers, target)
+    lines = sys.stdin.readlines()
+    print("Part1: {}".format(part1(lines)))
+    print("Part2: {}".format(part2(lines)))
 
 
 if __name__ == "__main__":
