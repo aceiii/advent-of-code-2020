@@ -2,6 +2,7 @@
 
 import sys
 import re
+import traceback
 
 
 def usage():
@@ -32,15 +33,15 @@ def main():
         if has_part1:
             try:
                 print("Part1: {}".format(module.part1(lines)))
-            except Exception as e:
-                print(e)
+            except:
+                print(traceback.format_exc())
                 exit(1)
 
         if has_part2:
             try:
                 print("Part2: {}".format(module.part2(lines)))
-            except Exception as e:
-                print(e)
+            except:
+                print(traceback.format_exc())
                 exit(1)
 
     except Exception as e:
