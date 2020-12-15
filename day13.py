@@ -41,12 +41,11 @@ def find_offset_increment(start, inc, bus1, bus2):
 
 def part2(lines):
     _, buses = parse_schedule(lines)
-    bus1 = buses[0]
-    offset = 0
-    inc = bus1[0]
-    for bus2 in buses[1:]:
+    offset, inc = 0, 1
+    for index, bus1 in enumerate(buses[:-1]):
+        bus2 = buses[index+1]
         offset, inc = find_offset_increment(offset+inc, inc, bus1, bus2)
-        if match_buses(offset+bus1[1], buses):
+        if match_buses(offset, buses):
             return offset
 
 
