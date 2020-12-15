@@ -59,7 +59,7 @@ def parse_instruction(line):
 
 
 def parse_boot_code(lines):
-    return list(map(parse_instruction, lines))
+    return [parse_instruction(line) for line in lines]
 
 
 def build_jump_graph2(instructions):

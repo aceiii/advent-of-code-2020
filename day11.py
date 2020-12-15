@@ -31,11 +31,11 @@ def seats_equal(seats1, seats2):
 
 
 def parse_seat_row(row):
-    return list(map(Seating, row.strip()))
+    return [Seating(c) for c in row.strip()]
 
 
 def parse_seats(lines):
-    return list(map(parse_seat_row, lines))
+    return [parse_seat_row(line) for line in lines]
 
 
 def get_seat(seats, pos):
@@ -153,7 +153,8 @@ class SeatSimulator:
         adjacent = [(0, -1), (1, -1), (1, 0), (1, 1),
                     (0, 1), (-1, 1), (-1, 0), (-1, -1)]
         neighbours = [(x + ax, y + ay) for ax, ay in adjacent]
-        return list(filter(lambda p: not is_out_of_bounds(p, (w, h)), neighbours))
+        return [n for n in neighbours if not is_out_of_bounds(n, (w, h))]
+
 
     def _update(self):
         for seat in self._seats.values():

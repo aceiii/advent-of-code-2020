@@ -106,12 +106,12 @@ def validate_passport(passport):
 
 def part1(lines):
     passports = parse_passport_batch(lines)
-    return len(list(filter(has_required_fields, passports)))
+    return len([p for p in passports if has_required_fields(p)])
 
 
 def part2(lines):
     passports = parse_passport_batch(lines)
-    return len(list(filter(validate_passport, passports)))
+    return len([p for p in passports if validate_passport(p)])
 
 
 def main():

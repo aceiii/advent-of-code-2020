@@ -5,7 +5,7 @@ from collections import defaultdict
 
 
 def parse_jolts(lines):
-    return sorted(list(map(lambda x: int(x.strip(), 10), lines)))
+    return sorted(int(line.strip(), 10) for line in lines)
 
 
 def part1(lines):
@@ -26,7 +26,7 @@ def part2(lines):
     combos = {jolts[-1]: 1}
     for n in range(len(jolts)-2, -1, -1):
         jolt = jolts[n]
-        adapters = list(filter(lambda x: x <= jolt+3, jolts[n+1:n+4]))
+        adapters = [x for x in jolts[n+1:n+4] if x <= jolt+3]
         combos[jolt] = sum(combos[i] for i in adapters)
     return combos[0]
 

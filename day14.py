@@ -19,7 +19,7 @@ def parse_mask(mask):
 
 def parse_loc_mask(mask):
     mask_val = int('0b' + mask.replace('X', '0'), 2)
-    bits = [i for i, x in filter(lambda x: x[1] == 'X', enumerate(mask))]
+    bits = [i for i, x in enumerate(mask) if x == 'X']
 
     def mask_func(value):
         addrs = []

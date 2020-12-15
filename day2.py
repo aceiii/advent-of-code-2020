@@ -24,15 +24,15 @@ def validate_line2(rule, password):
 
 
 def part1(lines):
-    parsed_lines = map(parse_line, lines)
-    valid_lines = filter(lambda line: validate_line(*line), parsed_lines)
-    return len(list(valid_lines))
+    parsed_lines = [parse_line(line) for line in lines]
+    valid_lines = [line for line in parsed_lines if validate_line(*line)]
+    return len(valid_lines)
 
 
 def part2(lines):
-    parsed_lines = map(parse_line, lines)
-    valid_lines = filter(lambda line: validate_line2(*line), parsed_lines)
-    return len(list(valid_lines))
+    parsed_lines = [parse_line(line) for line in lines]
+    valid_lines = [line for line in parsed_lines if validate_line2(*line)]
+    return len(valid_lines)
 
 
 def main():

@@ -30,7 +30,7 @@ def move(facing, value):
 
 
 def parse_navigation(lines):
-    return list(map(lambda x: (x[0], int(x.strip()[1:], 10)), lines))
+    return [(x[0], int(x.strip()[1:], 10)) for x in lines]
 
 
 def navigate(instructions):

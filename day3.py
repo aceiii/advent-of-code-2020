@@ -10,7 +10,7 @@ def is_tree(tile):
 
 class TreeMap(object):
     def __init__(self, lines):
-        self.lines = list(map(str.strip, lines))
+        self.lines = [line.strip() for line in lines]
         self.width = len(self.lines[0])
         self.height = len(self.lines)
 
@@ -46,7 +46,7 @@ def part2(lines):
         (7, 1),
         (1, 2),
     ]
-    trees = map(lambda slope: count_trees(tree_map, slope), slopes)
+    trees = [count_trees(tree_map, slope) for slope in slopes]
     return reduce(lambda a,b: a*b, trees)
 
 

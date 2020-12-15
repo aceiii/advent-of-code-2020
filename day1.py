@@ -29,13 +29,13 @@ def find_triplets(numbers, target):
 
 
 def part1(lines):
-    numbers = list(map(lambda x: int(x, 10), lines))
+    numbers = [int(x, 10) for x in lines]
     (num1, num2) = find_pairs(numbers, 2020)
     return num1 * num2
 
 
 def part2(lines):
-    numbers = list(map(lambda x: int(x, 10), lines))
+    numbers = [int(x, 10) for x in lines]
     (num1, num2, num3) = find_triplets(numbers, 2020)
     return num1 * num2 * num3
 
